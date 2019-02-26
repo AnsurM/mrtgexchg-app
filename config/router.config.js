@@ -21,39 +21,18 @@ export default [
       { path: '/', redirect: '/dashboard/analysis' },
       { path: '/dashboard', redirect: '/dashboard/analysis' },
       {
-        path: '/dashboard',
-        name: 'dashboard',
-        icon: 'dashboard',
-        routes: [
-          {
-            path: '/dashboard/analysis',
-            name: 'analysis',
-            component: './Dashboard/Analysis',
-          },
-          {
-            path: '/dashboard/monitor',
-            name: 'monitor',
-            component: './Dashboard/Monitor',
-          },
-          {
-            path: '/dashboard/workplace',
-            name: 'workplace',
-            component: './Dashboard/Workplace',
-          },
-        ],
-      },
-      // forms
-      {
         path: '/form',
         icon: 'form',
-        name: 'form',
-        routes: [
+        name: 'Real Estate',
+        component: './Forms/BasicForm'
+/*        routes: [
           {
-            path: '/form/basic-form',
+            path: '/form',
             name: 'basicform',
             component: './Forms/BasicForm',
           },
-          {
+*/
+/*          {
             path: '/form/step-form',
             name: 'stepform',
             component: './Forms/StepForm',
@@ -86,8 +65,32 @@ export default [
             authority: ['admin'],
             component: './Forms/AdvancedForm',
           },
+*/
+//      ],
+      },
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        icon: 'dashboard',
+        routes: [
+          {
+            path: '/dashboard/analysis',
+            name: 'analysis',
+            component: './Dashboard/Analysis',
+          },
+          {
+            path: '/dashboard/monitor',
+            name: 'monitor',
+            component: './Dashboard/Monitor',
+          },
+          {
+            path: '/dashboard/workplace',
+            name: 'workplace',
+            component: './Dashboard/Workplace',
+          },
         ],
       },
+      // forms
       // list
       {
         path: '/list',
