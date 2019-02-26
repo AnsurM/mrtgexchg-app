@@ -38,6 +38,28 @@ const getValue = obj =>
 const statusMap = ['default', 'processing', 'success', 'error'];
 const status = ['关闭', '运行中', '已上线', '异常'];
 
+const myValues = {
+  list: [
+    {
+      id: 1,
+      address: "my address",
+      value: 75,
+      details: "my details",
+      owner: "Ansur",
+      updatedAt: "2017-07-03T19:00:00.000Z",
+      avatar: "https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png",
+      createdAt: "2017-07-03T19:00:00.000Z",
+      disabled: true,
+      href: "https://ant.design",
+      key: 6,
+      progress: 60,
+      title: "一个任务名称 6",
+    }
+  ]
+
+};
+
+
 const CreateForm = Form.create()(props => {
   const { modalVisible, form, handleAdd, handleModalVisible } = props;
   const okHandle = () => {
@@ -193,9 +215,9 @@ class UpdateForm extends PureComponent {
       ];
     }
     return [
-      <FormItem key="name" {...this.formLayout} label="规则名称">
+      <FormItem key="name" {...this.formLayout} label="Name">
         {form.getFieldDecorator('name', {
-          rules: [{ required: true, message: '请输入规则名称！' }],
+          rules: [{ required: true, message: 'Name' }],
           initialValue: formVals.name,
         })(<Input placeholder="请输入" />)}
       </FormItem>,
@@ -290,61 +312,28 @@ class TableList extends PureComponent {
 
   columns = [
     {
-      title: '规则名称',
-      dataIndex: 'name',
+      title: 'ID',
+      dataIndex: 'id',
     },
     {
-      title: '描述',
-      dataIndex: 'desc',
+      title: 'Address',
+      dataIndex: 'address',
     },
     {
-      title: '服务调用次数',
-      dataIndex: 'callNo',
+      title: 'Value',
+      dataIndex: 'value',
       sorter: true,
-      render: val => `${val} 万`,
+      render: val => `${val}`,
       // mark to display a total number
       needTotal: true,
     },
     {
-      title: '状态',
-      dataIndex: 'status',
-      filters: [
-        {
-          text: status[0],
-          value: 0,
-        },
-        {
-          text: status[1],
-          value: 1,
-        },
-        {
-          text: status[2],
-          value: 2,
-        },
-        {
-          text: status[3],
-          value: 3,
-        },
-      ],
-      render(val) {
-        return <Badge status={statusMap[val]} text={status[val]} />;
-      },
+      title: 'Details',
+      dataIndex: 'details',
     },
     {
-      title: '上次调度时间',
-      dataIndex: 'updatedAt',
-      sorter: true,
-      render: val => <span>{moment(val).format('YYYY-MM-DD HH:mm:ss')}</span>,
-    },
-    {
-      title: '操作',
-      render: (text, record) => (
-        <Fragment>
-          <a onClick={() => this.handleUpdateModalVisible(true, record)}>配置</a>
-          <Divider type="vertical" />
-          <a href="">订阅警报</a>
-        </Fragment>
-      ),
+      title: 'Owner',
+      dataIndex: 'owner',
     },
   ];
 
@@ -639,6 +628,11 @@ class TableList extends PureComponent {
       handleUpdateModalVisible: this.handleUpdateModalVisible,
       handleUpdate: this.handleUpdate,
     };
+//    data.list[0].name = 'Ansur';
+    if(data.list.length)
+    {
+      data.list = myValues.list;
+    }
     return (
       <PageHeaderWrapper title="查询表格">
         <Card bordered={false}>

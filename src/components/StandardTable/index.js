@@ -26,13 +26,13 @@ class StandardTable extends PureComponent {
 
   static getDerivedStateFromProps(nextProps) {
     // clean state
-    if (nextProps.selectedRows.length === 0) {
-      const needTotalList = initTotalList(nextProps.columns);
-      return {
-        selectedRowKeys: [],
-        needTotalList,
-      };
-    }
+    // if (nextProps.selectedRows.length === 0) {
+    //   const needTotalList = initTotalList(nextProps.columns);
+    //   return {
+    //     selectedRowKeys: [],
+    //     needTotalList,
+    //   };
+    // }
     return null;
   }
 
@@ -107,7 +107,7 @@ class StandardTable extends PureComponent {
         </div>
         <Table
           rowKey={rowKey || 'key'}
-          rowSelection={rowSelection}
+//          rowSelection={rowSelection}
           dataSource={list}
           pagination={paginationProps}
           onChange={this.handleTableChange}
