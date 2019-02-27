@@ -42,7 +42,7 @@ class Center extends PureComponent {
               }
               description={
                 <span>
-                  <Tag>CF Converter</Tag>
+                  <Tag>CF Converter ABC</Tag>
                 </span>
               }
             />

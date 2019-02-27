@@ -42,18 +42,21 @@ const myValues = {
   list: [
     {
       id: 1,
-      address: "my address",
-      value: 75,
-      details: "my details",
-      owner: "Ansur",
-      updatedAt: "2017-07-03T19:00:00.000Z",
-      avatar: "https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png",
-      createdAt: "2017-07-03T19:00:00.000Z",
-      disabled: true,
-      href: "https://ant.design",
-      key: 6,
-      progress: 60,
-      title: "一个任务名称 6",
+      reid: 123,
+      loan: 3000,
+      fico: 0,
+      insurance: 1000,
+      appraisal: 500,
+      status: "okay"
+    },
+    {
+      id: 2,
+      reid: 123,
+      loan: 3000,
+      fico: 0,
+      insurance: 1000,
+      appraisal: 500,
+      status: "okay"
     }
   ]
 
@@ -313,28 +316,32 @@ class TableList extends PureComponent {
 
   columns = [
     {
-      title: 'ID',
+      title: 'Customer ID',
       dataIndex: 'id',
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
+      title: 'Real Estate ID',
+      dataIndex: 'reid',
     },
     {
-      title: 'Value',
-      dataIndex: 'value',
-      sorter: true,
-      render: val => `${val}`,
-      // mark to display a total number
-      needTotal: true,
+      title: 'Loan Amount',
+      dataIndex: 'loan',
     },
     {
-      title: 'Details',
-      dataIndex: 'details',
+      title: 'FICO',
+      dataIndex: 'fico',
     },
     {
-      title: 'Owner',
-      dataIndex: 'owner',
+      title: 'Insurance',
+      dataIndex: 'insurance',
+    },
+    {
+      title: 'Appraisal',
+      dataIndex: 'appraisal',
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
     },
   ];
 
@@ -605,7 +612,7 @@ class TableList extends PureComponent {
       data.list = myValues.list;
     }
     return (
-      <PageHeaderWrapper title='List'>
+      <PageHeaderWrapper title='Lending'>
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>

@@ -132,7 +132,7 @@ export function getRoutes(path, routerData) {
 }
 
 export function getPageQuery() {
-  return 'http://localhost:8000/dashboard';
+  return 'http://localhost:8000/records';
 }
 
 export function getQueryPath(path = '', query = {}) {

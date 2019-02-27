@@ -41,19 +41,16 @@ const status = ['关闭', '运行中', '已上线', '异常'];
 const myValues = {
   list: [
     {
-      id: 1,
-      address: "my address",
-      value: 75,
-      details: "my details",
-      owner: "Ansur",
-      updatedAt: "2017-07-03T19:00:00.000Z",
-      avatar: "https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png",
-      createdAt: "2017-07-03T19:00:00.000Z",
-      disabled: true,
-      href: "https://ant.design",
-      key: 6,
-      progress: 60,
-      title: "一个任务名称 6",
+      reid: '123',
+      appraisal: 1000,
+      nto: "Ansur",
+      titleStatus: 'true'
+    },
+    {
+      reid: '124',
+      appraisal: 1000,
+      nto: "Abdul Sami",
+      titleStatus: 'false'
     }
   ]
 
@@ -313,28 +310,20 @@ class TableList extends PureComponent {
 
   columns = [
     {
-      title: 'ID',
-      dataIndex: 'id',
+      title: 'Real Estate ID',
+      dataIndex: 'reid',
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
+      title: 'Appraisal',
+      dataIndex: 'appraisal',
     },
     {
-      title: 'Value',
-      dataIndex: 'value',
-      sorter: true,
-      render: val => `${val}`,
-      // mark to display a total number
-      needTotal: true,
+      title: 'New Title Owner',
+      dataIndex: 'nto',
     },
     {
-      title: 'Details',
-      dataIndex: 'details',
-    },
-    {
-      title: 'Owner',
-      dataIndex: 'owner',
+      title: 'Title Status',
+      dataIndex: 'titleStatus',
     },
   ];
 
@@ -605,7 +594,7 @@ class TableList extends PureComponent {
       data.list = myValues.list;
     }
     return (
-      <PageHeaderWrapper title='List'>
+      <PageHeaderWrapper title='Books'>
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>

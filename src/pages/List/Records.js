@@ -605,7 +605,7 @@ class TableList extends PureComponent {
       data.list = myValues.list;
     }
     return (
-      <PageHeaderWrapper title='List'>
+      <PageHeaderWrapper title='Records'>
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderForm()}</div>
