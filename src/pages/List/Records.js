@@ -38,6 +38,8 @@ const getValue = obj =>
 const statusMap = ['default', 'processing', 'success', 'error'];
 const status = ['关闭', '运行中', '已上线', '异常'];
 
+const axios = require('axios');
+
 const myValues = {
   list: [
     {
@@ -488,6 +490,23 @@ class TableList extends PureComponent {
     message.success('配置成功');
     this.handleUpdateModalVisible();
   };
+
+  getDataFromApi()
+  {
+
+// Optionally the request above could also be done as
+     axios.get('/user', {
+      params: {
+        ID: 12345
+      }
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   renderSimpleForm() {
     const {
